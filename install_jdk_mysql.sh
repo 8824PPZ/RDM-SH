@@ -66,7 +66,7 @@ uninstall_jdk(){
      echo "已完成jdk卸载"
    else 
      echo "没有安装jdk" 
-   
+   fi
   
    
    
