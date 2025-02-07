@@ -68,10 +68,10 @@ uninstall_jdk(){
 if [ "$jdk_count" -gt 0 ]; then
      apt-get  -y  purge openjdk* 
      apt-get purge icedtea-* openjdk-*
-     echo "已完成jdk卸载"
+     echo "###############################已完成jdk卸载###############################"
     
 else
-    echo "系统中没有安装 JDK 包。"
+    echo "###############################系统中没有安装 JDK 包###############################"
 fi
 
    
