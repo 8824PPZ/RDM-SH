@@ -59,15 +59,22 @@ uninstall_jdk(){
    #根据该指令显示的结果数量判断有没有安装jdk dpkg --list | grep -i jdk | wc -l 
 
    #执行该指令
-   cmd1= $( dpkg --list | grep -i jdk | wc -l )
-   if [ $cmd1 > 0 ] ; then 
+
+
+   # 获取已安装的 JDK 包的数量
+   jdk_count=$(dpkg --list | grep -i jdk | wc -l)
+
+   # 判断 JDK 包的数量
+if [ "$jdk_count" -gt 0 ]; then
      apt-get  -y  purge openjdk* 
      apt-get purge icedtea-* openjdk-*
      echo "已完成jdk卸载"
-   else 
-     echo "没有安装jdk" 
-     
-   fi
+    
+else
+    echo "系统中没有安装 JDK 包。"
+fi
+
+   
 }
 
 
