@@ -65,7 +65,7 @@ uninstall_jdk(){
      apt-get purge icedtea-* openjdk-*
      echo "已完成jdk卸载"
    else 
-     echo "没有安装jdk"
+     echo "没有安装jdk" 
    
   
    
