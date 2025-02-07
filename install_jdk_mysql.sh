@@ -23,11 +23,17 @@ menu(){
    echo ""
    purple "=== RDM JDK&&MySQL Environmental Installation ===\n"
 
-   green "1. 安装JDK"
+   green "1. 安装JDK与MySQL"
    echo  "==============="
-   green "2. 安装MySQL"
+   green "2. 安装JDK"
    echo  "==============="
-   red   "3. 退出脚本"
+   green "3. 安装MySQL"
+   echo  "==============="
+   green "4. 卸载JDK"
+   echo  "==============="
+   green "5. 卸载MySQL"
+   echo  "==============="
+   red   "6. 退出脚本"
    echo  "==============="
 
 
