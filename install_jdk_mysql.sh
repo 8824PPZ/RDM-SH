@@ -42,7 +42,7 @@ menu(){
       case "${choice}" in
         1) install_jdk ;;
         2) install_mysql ;;
-        3) exit 0 ;;
+        6) exit 0 ;;
         *) red "无效的选项，请输入 1 到 4" ;;
     esac
 
