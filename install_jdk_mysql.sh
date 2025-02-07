@@ -43,7 +43,7 @@ menu(){
         1) install_jdk ;;
         2) install_mysql ;;
         6) exit 0 ;;
-        *) red "无效的选项，请输入 1 到 4" ;;
+        *) red "无效的选项，请输入 1 到 6" ;;
     esac
 
 
