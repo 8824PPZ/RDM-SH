@@ -43,6 +43,7 @@ menu(){
         1) install_jdk_mysql ;;
         2) install_jdk ;;
         3) install_mysql ;;
+        4) uninstall_jdk ;;
         
         6) exit 0 ;;
         *) red "无效的选项，请输入 1 到 6" ;;
