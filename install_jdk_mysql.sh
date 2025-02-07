@@ -59,7 +59,7 @@ uninstall_jdk(){
    #根据该指令显示的结果数量判断有没有安装jdk dpkg --list | grep -i jdk | wc -l 
 
    #执行该指令
-   cmd1= 'dpkg --list | grep -i jdk | wc -l'
+   cmd1= `dpkg --list | grep -i jdk | wc -l`
    if [ $cmd1 > 0 ] ; then 
      apt-get  -y  purge openjdk* 
      apt-get purge icedtea-* openjdk-*
