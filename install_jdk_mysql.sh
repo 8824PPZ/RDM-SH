@@ -37,7 +37,7 @@ menu(){
    echo  "==============="
 
 
-   reading "请输入选择(1-3): " choice
+   reading "请输入选择(1-6): " choice
    echo ""
       case "${choice}" in
         1) install_jdk ;;
