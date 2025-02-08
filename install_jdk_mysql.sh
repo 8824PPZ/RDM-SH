@@ -65,7 +65,7 @@ uninstall_jdk(){
    jdk_count=$(dpkg --list | grep -i jdk | wc -l)
 
    # 判断 JDK 包的数量
-if [ "$jdk_count" -gt 0 ]; then
+if [ "$jdk_count" -eq 0 ]; then
      apt-get  -y  purge openjdk* 
      apt-get purge icedtea-* openjdk-*
      echo "###############################已完成jdk卸载###############################"
