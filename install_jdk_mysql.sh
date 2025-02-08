@@ -113,8 +113,9 @@ install_jdk(){
 install_mysql(){
 
     # 根据MySQL 的依赖的数量判断有没有安装MySQL
-     mysql_count=$(dpkg --list|grep mysql | wc -l)
+     mysql_count=$(dpkg --list | grep mysql | wc -l)
      if [ "$mysql_count" -eq 0 ]; then
+  
      echo "###############################MySQL未安装###############################"
      echo "  "
      echo "###############################开始安装MySQL###############################"
