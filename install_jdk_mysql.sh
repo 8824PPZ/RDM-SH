@@ -140,6 +140,8 @@ install_mysql(){
      sed -i '/bind-address/d' /etc/mysql/mysql.conf.d/mysqld.cnf
       #追加不区分大小写lower_case_table_names=1
       sed -i -e '$a\lower_case_table_names=1' /etc/mysql/mysql.conf.d/mysqld.cnf
+      #设置不用密码登录
+      sed -i -e '$b\skip-grant-tables' /etc/mysql/mysql.conf.d/mysqld.cnf
 
       echo "修改配置文件成功"
 
@@ -158,6 +160,8 @@ EOF
      sudo /etc/init.d/mysql restart
      echo "重启完成"
 
+      #删除原来添加的，改为需要密码登录
+       sed -i '/skip-grant-tables/d' /etc/mysql/mysql.conf.d/mysqld.cnf
 
       echo "开始插入表数据"
       #插入表数据
