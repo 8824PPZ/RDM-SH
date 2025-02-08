@@ -112,17 +112,25 @@ install_jdk(){
 #安装mysql
 install_mysql(){
 
+    # 根据MySQL 的依赖的数量判断有没有安装MySQL
+     mysql_count = $(dpkg --list|grep mysql | wc -l)
+     if [ "$mysql_count" -gt 0 ]; then
+     echo "###############################MySQL未安装###############################"
+     echo "  "
+     echo "###############################开始安装MySQL###############################"
+     tar xvf  /usr/ppz/mysql-server_5.7.36-1ubuntu18.04_amd64.deb-bundle.tar
+     cd /usr/ppz
+     sudo apt-get install /usr/ppz/libmysql* -y
+     sudo apt-get install libtinfo5
 
-# 判断MySQL是否存在
-mysqlPath=/usr/bin/mysql
-if [ ! -f "$mysqlPath" ]; then
-    echo "###############################MySQL未安装###############################"
-    echo "  "
-    echo "###############################开始安装MySQL###############################"
-    sudo apt -y install mysql-server-5.7
-    echo "###############################MySQL已经成功安装###############################"
+     sudo apt-get install ./mysql-community-client_5.7.36-1ubuntu18.04_amd64.deb
+     sudo apt-get install ./mysql-client_5.7.36-1ubuntu18.04_amd64.deb
+     sudo apt-get install -y ./mysql-community-server_5.7.36-1ubuntu18.04_amd64.deb
+     sudo apt-get install -y ./mysql-server_5.7.36-1ubuntu18.04_amd64.deb
+      echo "###############################MySQL已经成功安装###############################"
 
-     #开始对MySQL进行初始化配置修改
+      
+       #开始对MySQL进行初始化配置修改
 
      #注释掉bind-address= 127.0.0.1
      echo "开始修改配置文件"
@@ -155,10 +163,10 @@ EOF
        mysql -uroot -prdm123 -e "source /usr/ppz/cams.sql"
       echo "插入完成"
 
- else
-    echo "*******************************MySQL 已经安装**************************************"
-fi
+      else
+        echo "###############################MySQL已经安装###############################"
 
+     fi
 
 }
 
