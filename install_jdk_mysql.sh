@@ -141,7 +141,10 @@ install_mysql(){
       #追加不区分大小写lower_case_table_names=1
       sed -i -e '$a\lower_case_table_names=1' /etc/mysql/mysql.conf.d/mysqld.cnf
       #设置不用密码登录
-      sed -i -e '$b\skip-grant-tables' /etc/mysql/mysql.conf.d/mysqld.cnf
+      sed -i '/\[mysqld\]/a skip-grant-tables' /etc/mysql/my.cnf
+
+      # 重启MySQL服务
+      systemctl restart mysql
 
       echo "修改配置文件成功"
 
@@ -156,13 +159,15 @@ EOF
 
       echo "修改密码成功"
 
+      # 恢复配置文件，移除skip-grant-tables
+      sed -i '/skip-grant-tables/d' /etc/mysql/my.cnf
+
       echo "重启MySQL服务"
      sudo /etc/init.d/mysql restart
      echo "重启完成"
 
-      #删除原来添加的，改为需要密码登录
-       sed -i '/skip-grant-tables/d' /etc/mysql/mysql.conf.d/mysqld.cnf
-
+    
+      
       echo "开始插入表数据"
       #插入表数据
        mysql -uroot -prdm123 -e "source /usr/ppz/cams.sql"
