@@ -119,7 +119,7 @@ install_mysql(){
      echo "###############################MySQL未安装###############################"
      echo "  "
      echo "###############################开始安装MySQL###############################"
-     tar xvf  /usr/ppz/mysql-server_5.7.36-1ubuntu18.04_amd64.deb-bundle.tar
+     tar -xvf  /usr/ppz/mysql-server_5.7.36-1ubuntu18.04_amd64.deb-bundle.tar
      cd /usr/ppz
      sudo apt-get install /usr/ppz/libmysql* -y
      sudo apt-get install libtinfo5
