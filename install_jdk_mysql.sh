@@ -44,7 +44,7 @@ menu(){
         2) install_jdk ;;
         3) install_mysql ;;
         4) uninstall_jdk ;;
-        5）uninstall_mysql ;;
+        5) uninstall_mysql ;;
         6) exit 0 ;;
         *) red "无效的选项，请输入 1 到 6" ;;
     esac
