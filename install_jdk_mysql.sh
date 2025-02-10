@@ -44,7 +44,7 @@ menu(){
         2) install_jdk ;;
         3) install_mysql ;;
         4) uninstall_jdk ;;
-        
+        5）uninstall_mysql ;;
         6) exit 0 ;;
         *) red "无效的选项，请输入 1 到 6" ;;
     esac
@@ -106,6 +106,17 @@ install_jdk(){
     echo "*******************************JDK 已经安装**************************************"
 
     fi
+
+}
+
+#卸载MySQL 
+uninstall_mysql(){
+
+   sudo apt-get remove mysql-common -y
+   sudo apt-get autoremove --purge mysql-community-client -y
+   sudo apt-get autoremove --purge mysql-common -y
+   sudo apt-get autoremove --purge mysql-server -y
+   sudo apt-get autoremove --purge mysql-community-server -y
 
 }
 
