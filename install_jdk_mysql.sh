@@ -141,7 +141,7 @@ install_mysql(){
       #追加不区分大小写lower_case_table_names=1
       sed -i -e '$a\lower_case_table_names=1' /etc/mysql/mysql.conf.d/mysqld.cnf
       #设置不用密码登录
-      sed -i '/\[mysqld\]/a skip-grant-tables' /etc/mysql/mysql.conf.d/mysqld.cnf
+      #sed -i '/\[mysqld\]/a skip-grant-tables' /etc/mysql/mysql.conf.d/mysqld.cnf
 
       # 重启MySQL服务
       systemctl restart mysql
@@ -150,7 +150,7 @@ install_mysql(){
 
        echo "开始修改密码和设置远程登录"
 
-       sudo mysql  << EOF
+       sudo mysql -uroot -proot  << EOF
        update mysql.user set authentication_string=PASSWORD('rdm123'), plugin='mysql_native_password' where user='root';
        grant all ON *.* to root@'%' identified by 'rdm123' with grant option;
       flush privileges;
@@ -160,7 +160,7 @@ EOF
       echo "修改密码成功"
 
       # 恢复配置文件，移除skip-grant-tables
-      sed -i '/skip-grant-tables/d' /etc/mysql/mysql.conf.d/mysqld.cnf
+      #sed -i '/skip-grant-tables/d' /etc/mysql/mysql.conf.d/mysqld.cnf
 
       echo "重启MySQL服务"
      sudo /etc/init.d/mysql restart
