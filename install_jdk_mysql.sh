@@ -160,7 +160,7 @@ EOF
       echo "修改密码成功"
 
       # 恢复配置文件，移除skip-grant-tables
-      sed -i '/skip-grant-tables/d' /etc/mysql/my.cnf
+      sed -i '/skip-grant-tables/d' /etc/mysql/mysql.conf.d/mysqld.cnf
 
       echo "重启MySQL服务"
      sudo /etc/init.d/mysql restart
